@@ -1,0 +1,29 @@
+# Copyright (C) 2015 WordPress Plugin Shell
+# This file is distributed under the same license as the WordPress Plugin Shell package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPress Plugin Shell 1.0\n"
+"Report-Msgid-Bugs-To: http://atlanticwave.co/\n"
+"POT-Creation-Date: 2016-03-29 11:28:06+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#. Plugin Name of the plugin/theme
+msgid "WordPress Plugin Shell"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://atlanticwave.co/"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Atlantic Wave"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://atlanticwave.co/"
+msgstr ""
