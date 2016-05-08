@@ -29,6 +29,7 @@ define( 'AW_DS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 if ( ! function_exists( 'et_load_core_options' ) ) {
 	function et_load_core_options() {
 		global $shortname;
+		require_once get_template_directory() . esc_attr( "/options_{$shortname}.php" );
 		require_once AW_DS_PLUGIN_PATH . 'options_divi_social.php';
 	}
 }
