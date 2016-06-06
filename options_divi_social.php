@@ -76,11 +76,6 @@ foreach ($original_options as $option){
 				"desc" =>esc_html__( "Enter the URL of your Flikr Profile. ", $themename ) );
 	}
 }
-/*
-echo '<pre>';
-print_r($new_options);
-echo '</pre>';
-die();
-*/
+
 $options = array();
 $options = $new_options;

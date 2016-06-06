@@ -19,20 +19,15 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-if ('Divi' != get_template()) {
-	wp_die('The Atlantic Wave Divi Social plugin will not work if your site\'s current theme is not Divi theme from Elegantthemes.com.');
-}
-
 define( 'AW_DS_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'AW_DS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
-if ( ! function_exists( 'et_load_core_options' ) ) {
-	function et_load_core_options() {
-		global $shortname;
-		require_once get_template_directory() . esc_attr( "/options_{$shortname}.php" );
+if ( ! function_exists( 'aw_ds_load_core_options' ) ) {
+	function aw_ds_load_core_options() {
 		require_once AW_DS_PLUGIN_PATH . 'options_divi_social.php';
 	}
 }
+add_action('admin_init', 'aw_ds_load_core_options', 11 );
 
 function aw_ds_ob_start() {
 	ob_start();
