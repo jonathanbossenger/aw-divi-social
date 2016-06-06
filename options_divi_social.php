@@ -6,6 +6,10 @@ foreach ($original_options as $option){
 
 	$new_options[] = $option;
 
+	if ( !isset( $option['id'] ) ){
+		continue;
+	}
+
 	if ( 'divi_show_google_icon' == $option['id'] ) {
 
 		$new_options[] = array( "name" =>esc_html__( "Show LinkedIn Icon", $themename ),
