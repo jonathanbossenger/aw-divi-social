@@ -22,6 +22,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 define( 'AW_DS_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'AW_DS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
+add_action( 'wp_enqueue_scripts', 'aw_divi_social_enqueue_styles' );
+function aw_divi_social_enqueue_styles () {
+	wp_enqueue_style( 'font-awesome', AW_DS_PLUGIN_URL . '/font-awesome/css/font-awesome.min.css' );
+}
+
 if ( ! function_exists( 'aw_ds_load_core_options' ) ) {
 	function aw_ds_load_core_options() {
 		require_once AW_DS_PLUGIN_PATH . 'options_divi_social.php';
@@ -112,6 +117,23 @@ function aw_ds_get_social_icons() {
 			</li>
 		<?php endif; ?>
 
+		<?php if ( 'on' === et_get_option( 'divi_show_houzz_icon', 'on' ) ) : ?>
+			<li class="et-social-icon et-social-houzz">
+				<a href="<?php echo esc_url( et_get_option( 'divi_houzz_url', '#' ) ); ?>" class="icon">
+					<i class="fa fa-houzz"></i>
+					<span><?php esc_html_e( 'Houzz', 'Divi' ); ?></span>
+				</a>
+			</li>
+		<?php endif; ?>
+
+		<?php if ( 'on' === et_get_option( 'divi_show_youtube_icon', 'on' ) ) : ?>
+			<li class="et-social-icon et-social-youtube">
+				<a href="<?php echo esc_url( et_get_option( 'divi_youtube_url', '#' ) ); ?>" class="icon">
+					<span><?php esc_html_e( 'YouTube', 'Divi' ); ?></span>
+				</a>
+			</li>
+		<?php endif; ?>
+
 		<?php if ( 'on' === et_get_option( 'divi_show_rss_icon', 'on' ) ) : ?>
 			<?php
 			$et_rss_url = '' !== et_get_option( 'divi_rss_url' )
@@ -121,6 +143,15 @@ function aw_ds_get_social_icons() {
 			<li class="et-social-icon et-social-rss">
 				<a href="<?php echo esc_url( $et_rss_url ); ?>" class="icon">
 					<span><?php esc_html_e( 'RSS', 'Divi' ); ?></span>
+				</a>
+			</li>
+		<?php endif; ?>
+
+		<?php if ( 'on' === et_get_option( 'divi_show_podcast_icon', 'on' ) ) : ?>
+			<li class="et-social-icon et-social-podcast">
+				<a href="<?php echo esc_url( et_get_option( 'divi_podcast_url', '#' ) ); ?>" class="icon">
+					<i class="fa fa-headphones"></i>
+					<span><?php esc_html_e( 'Podcast', 'Divi' ); ?></span>
 				</a>
 			</li>
 		<?php endif; ?>
