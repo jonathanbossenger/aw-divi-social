@@ -54,6 +54,12 @@ foreach ($original_options as $option) {
             "std" => "on",
             "desc" => esc_html__("Here you can choose to display the YouTube Icon on your homepage. ", $themename));
 
+        $new_options[] = array("name" => esc_html__("Show Vine Icon", $themename),
+            "id" => $shortname . "_show_vine_icon",
+            "type" => "checkbox",
+            "std" => "on",
+            "desc" => esc_html__("Here you can choose to display the Vine icon on your homepage. ", $themename));
+
         $new_options[] = array("name" => esc_html__("Show Podcast Icon", $themename),
             "id" => $shortname . "_show_podcast_icon",
             "type" => "checkbox",
@@ -111,6 +117,13 @@ foreach ($original_options as $option) {
             "type" => "text",
             "validation_type" => "url",
             "desc" => esc_html__("Enter the URL of your YouTube Channel. ", $themename));
+
+        $new_options[] = array("name" => esc_html__("Vine Profile Url", $themename),
+            "id" => $shortname . "_vine_url",
+            "std" => "#",
+            "type" => "text",
+            "validation_type" => "url",
+            "desc" => esc_html__("Enter the URL of your Vine Channel. ", $themename));        
 
         $new_options[] = array("name" => esc_html__("Podcast Url", $themename),
             "id" => $shortname . "_podcast_url",

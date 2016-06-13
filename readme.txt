@@ -16,10 +16,12 @@ Long Description
 
 Adds additional social media icons do your Divi Header and Footer
 
+Houzz
+Instagram
 Linkedin
 Pinterest
+Podcast
 Tumblr
-Instagram
 Flikr
 Vine
 
@@ -28,6 +30,10 @@ Vine
 Add new plugin by uploading zip archive. Additional icons are available via your Divi Theme options.
 
 == Changelog ==
+
+= 1.1 =
+* 2016-06-13
+* Added YouTube, Vine, Houzz, Podcast
 
 = 1.0 =
 * 2016-04-22
