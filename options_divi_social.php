@@ -2,6 +2,22 @@
 global $epanelMainTabs, $themename, $shortname, $options;
 $original_options = $options;
 
+$additional_options = array(
+    'dribbble' => 'Dribbble',
+    'flikr' => 'Flikr',
+    'houzz' => 'Houzz',
+    'instagram' => 'Instagram',
+    'linkedin' => 'Linkedin',
+    'myspace' => 'MySpace',
+    'pinterest' => 'Pinterest',
+    'podcast' => 'Podcast',
+    'tumblr' => 'Tumblr',
+    'skype' => 'Skype',
+    'youtube' => 'YouTube',
+    'vimeo' => 'Vimeo',
+    'vine' => 'Vine',
+);
+
 foreach ($original_options as $option) {
 
     $new_options[] = $option;
@@ -12,125 +28,27 @@ foreach ($original_options as $option) {
 
     if ('divi_show_google_icon' == $option['id']) {
 
-        $new_options[] = array("name" => esc_html__("Show LinkedIn Icon", $themename),
-            "id" => $shortname . "_show_linkedin_icon",
-            "type" => "checkbox",
-            "std" => "on",
-            "desc" => esc_html__("Here you can choose to display the LinkedIn Icon on your homepage. ", $themename));
-
-        $new_options[] = array("name" => esc_html__("Show Pinterest Icon", $themename),
-            "id" => $shortname . "_show_pinterest_icon",
-            "type" => "checkbox",
-            "std" => "on",
-            "desc" => esc_html__("Here you can choose to display the Pinterest Icon on your homepage. ", $themename));
-
-        $new_options[] = array("name" => esc_html__("Show Tumblr Icon", $themename),
-            "id" => $shortname . "_show_tumblr_icon",
-            "type" => "checkbox",
-            "std" => "on",
-            "desc" => esc_html__("Here you can choose to display the Tumblr Icon on your homepage. ", $themename));
-
-        $new_options[] = array("name" => esc_html__("Show Instagram Icon", $themename),
-            "id" => $shortname . "_show_instagram_icon",
-            "type" => "checkbox",
-            "std" => "on",
-            "desc" => esc_html__("Here you can choose to display the Instagram Icon on your homepage. ", $themename));
-
-        $new_options[] = array("name" => esc_html__("Show Flikr Icon", $themename),
-            "id" => $shortname . "_show_flikr_icon",
-            "type" => "checkbox",
-            "std" => "on",
-            "desc" => esc_html__("Here you can choose to display the Flikr Icon on your homepage. ", $themename));
-
-        $new_options[] = array("name" => esc_html__("Show Houzz Icon", $themename),
-            "id" => $shortname . "_show_houzz_icon",
-            "type" => "checkbox",
-            "std" => "on",
-            "desc" => esc_html__("Here you can choose to display the Houzz Icon on your homepage. ", $themename));
-        
-        $new_options[] = array("name" => esc_html__("Show YouTube Icon", $themename),
-            "id" => $shortname . "_show_youtube_icon",
-            "type" => "checkbox",
-            "std" => "on",
-            "desc" => esc_html__("Here you can choose to display the YouTube Icon on your homepage. ", $themename));
-
-        $new_options[] = array("name" => esc_html__("Show Vine Icon", $themename),
-            "id" => $shortname . "_show_vine_icon",
-            "type" => "checkbox",
-            "std" => "on",
-            "desc" => esc_html__("Here you can choose to display the Vine icon on your homepage. ", $themename));
-
-        $new_options[] = array("name" => esc_html__("Show Podcast Icon", $themename),
-            "id" => $shortname . "_show_podcast_icon",
-            "type" => "checkbox",
-            "std" => "on",
-            "desc" => esc_html__("Here you can choose to display a Podcast Icon on your homepage. ", $themename));
+        foreach ( $additional_options as $option_name => $option_title ) {
+            $new_options[] = array("name" => esc_html__("Show " . $option_title . " Icon", $themename),
+                "id" => $shortname . "_show_" . $option_name . "_icon",
+                "type" => "checkbox",
+                "std" => "on",
+                "desc" => esc_html__("Here you can choose to display the " . $option_title . " Icon on your homepage. ", $themename));
+        }
 
     }
 
     if ('divi_google_url' == $option['id']) {
-        $new_options[] = array("name" => esc_html__("LinkedIn Profile Url", $themename),
-            "id" => $shortname . "_linkedin_url",
-            "std" => "#",
-            "type" => "text",
-            "validation_type" => "url",
-            "desc" => esc_html__("Enter the URL of your LinkedIn Profile. ", $themename));
 
-        $new_options[] = array("name" => esc_html__("Pinterest Profile Url", $themename),
-            "id" => $shortname . "_pinterest_url",
-            "std" => "#",
-            "type" => "text",
-            "validation_type" => "url",
-            "desc" => esc_html__("Enter the URL of your Pinterest Profile. ", $themename));
+        foreach ( $additional_options as $option_name => $option_title ) {
+            $new_options[] = array("name" => esc_html__( $option_title . " Url", $themename),
+                "id" => $shortname . "_" . $option_name . "_url",
+                "std" => "#",
+                "type" => "text",
+                "validation_type" => "url",
+                "desc" => esc_html__("Enter your " . $option_title . " URL.", $themename));
+        }
 
-        $new_options[] = array("name" => esc_html__("Tumblr Profile Url", $themename),
-            "id" => $shortname . "_tumblr_url",
-            "std" => "#",
-            "type" => "text",
-            "validation_type" => "url",
-            "desc" => esc_html__("Enter the URL of your Tumblr Profile. ", $themename));
-
-        $new_options[] = array("name" => esc_html__("Instagram Profile Url", $themename),
-            "id" => $shortname . "_instagram_url",
-            "std" => "#",
-            "type" => "text",
-            "validation_type" => "url",
-            "desc" => esc_html__("Enter the URL of your Instagram Profile. ", $themename));
-
-        $new_options[] = array("name" => esc_html__("Flikr Profile Url", $themename),
-            "id" => $shortname . "_flikr_url",
-            "std" => "#",
-            "type" => "text",
-            "validation_type" => "url",
-            "desc" => esc_html__("Enter the URL of your Flikr Profile. ", $themename));
-
-        $new_options[] = array("name" => esc_html__("Houzz Url", $themename),
-            "id" => $shortname . "_houzz_url",
-            "std" => "#",
-            "type" => "text",
-            "validation_type" => "url",
-            "desc" => esc_html__("Enter the URL of your Houzz Profile. ", $themename));
-
-        $new_options[] = array("name" => esc_html__("YouTube Channel Url", $themename),
-            "id" => $shortname . "_youtube_url",
-            "std" => "#",
-            "type" => "text",
-            "validation_type" => "url",
-            "desc" => esc_html__("Enter the URL of your YouTube Channel. ", $themename));
-
-        $new_options[] = array("name" => esc_html__("Vine Profile Url", $themename),
-            "id" => $shortname . "_vine_url",
-            "std" => "#",
-            "type" => "text",
-            "validation_type" => "url",
-            "desc" => esc_html__("Enter the URL of your Vine Channel. ", $themename));        
-
-        $new_options[] = array("name" => esc_html__("Podcast Url", $themename),
-            "id" => $shortname . "_podcast_url",
-            "std" => "#",
-            "type" => "text",
-            "validation_type" => "url",
-            "desc" => esc_html__("Enter the URL of your Podcast. ", $themename));
     }
 }
 
