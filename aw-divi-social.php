@@ -53,9 +53,9 @@ function aw_ds_get_social_icons() {
 
 	<ul class="et-social-icons">
 
-		<?php if ( 'on' === et_get_option( 'divi_show_dribble_icon', 'on' ) ) : ?>
+		<?php if ( 'on' === et_get_option( 'divi_show_dribbble_icon', 'on' ) ) : ?>
 			<li class="et-social-icon et-social-dribbble">
-				<a href="<?php echo esc_url( et_get_option( 'divi_dribble_url', '#' ) ); ?>" class="icon">
+				<a href="<?php echo esc_url( et_get_option( 'divi_dribbble_url', '#' ) ); ?>" class="icon">
 					<span><?php esc_html_e( 'Dribbble', 'Divi' ); ?></span>
 				</a>
 			</li>
