@@ -150,6 +150,15 @@ function aw_ds_get_social_icons() {
 			</li>
 		<?php endif; ?>
 
+		<?php if ( 'on' === et_get_option( 'divi_show_yelp_icon', 'on' ) ) : ?>
+			<li class="et-social-icon et-social-yelp">
+				<a href="<?php echo esc_url( et_get_option( 'divi_yelp_url', '#' ) ); ?>" class="icon">
+					<i class="fa fa-yelp"></i>
+					<span><?php esc_html_e( 'Yelp', 'Divi' ); ?></span>
+				</a>
+			</li>
+		<?php endif; ?>
+
 		<?php if ( 'on' === et_get_option( 'divi_show_youtube_icon', 'on' ) ) : ?>
 			<li class="et-social-icon et-social-youtube">
 				<a href="<?php echo esc_url( et_get_option( 'divi_youtube_url', '#' ) ); ?>" class="icon">
@@ -171,15 +180,6 @@ function aw_ds_get_social_icons() {
 				<a href="<?php echo esc_url( et_get_option( 'divi_vine_url', '#' ) ); ?>" class="icon">
 					<i class="fa fa-vine"></i>
 					<span><?php esc_html_e( 'Vine', 'Divi' ); ?></span>
-				</a>
-			</li>
-		<?php endif; ?>
-
-		<?php if ( 'on' === et_get_option( 'divi_show_yelp_icon', 'on' ) ) : ?>
-			<li class="et-social-icon et-social-yelp">
-				<a href="<?php echo esc_url( et_get_option( 'divi_yelp_url', '#' ) ); ?>" class="icon">
-					<i class="fa fa-yelp"></i>
-					<span><?php esc_html_e( 'Yelp', 'Divi' ); ?></span>
 				</a>
 			</li>
 		<?php endif; ?>

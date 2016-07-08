@@ -13,10 +13,10 @@ $additional_options = array(
     'podcast' => 'Podcast',
     'tumblr' => 'Tumblr',
     'skype' => 'Skype',
+    'yelp' => 'Yelp',
     'youtube' => 'YouTube',
     'vimeo' => 'Vimeo',
     'vine' => 'Vine',
-    'yelp' => 'Yelp',
 );
 
 foreach ($original_options as $option) {
