@@ -29,12 +29,17 @@ Skype
 YouTube
 Vimeo
 Vine
+Yelp
 
 == Installation ==
 
 Add new plugin by uploading zip archive. Additional icons are available via your Divi Theme options.
 
 == Changelog ==
+
+= 1.3 =
+* 2016-07-08
+* Added Yelp
 
 = 1.2 =
 * 2016-06-18

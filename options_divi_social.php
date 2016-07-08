@@ -16,6 +16,7 @@ $additional_options = array(
     'youtube' => 'YouTube',
     'vimeo' => 'Vimeo',
     'vine' => 'Vine',
+    'yelp' => 'Yelp',
 );
 
 foreach ($original_options as $option) {
