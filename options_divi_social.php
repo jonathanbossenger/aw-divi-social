@@ -9,6 +9,7 @@ $additional_options = array(
     'instagram' => 'Instagram',
     'linkedin' => 'Linkedin',
     'myspace' => 'MySpace',
+    'meetup' => 'Meetup',
     'pinterest' => 'Pinterest',
     'podcast' => 'Podcast',
     'tumblr' => 'Tumblr',

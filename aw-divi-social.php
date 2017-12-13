@@ -21,10 +21,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 define( 'AW_DS_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'AW_DS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+define( 'AW_DS_ASSSETS_URL', plugin_dir_url( __FILE__ ) . '/assets/' );
 
 add_action( 'wp_enqueue_scripts', 'aw_divi_social_enqueue_styles' );
 function aw_divi_social_enqueue_styles () {
-	wp_enqueue_style( 'font-awesome', AW_DS_PLUGIN_URL . '/font-awesome/css/font-awesome.min.css' );
+	wp_enqueue_style( 'font-awesome', AW_DS_ASSSETS_URL . 'font-awesome/fontawesome-all.min.css' );
+	wp_enqueue_style( 'zocial', AW_DS_ASSSETS_URL . 'zocial/css/zocial.css' );
+
 }
 
 if ( ! function_exists( 'aw_ds_load_core_options' ) ) {
@@ -106,6 +109,14 @@ function aw_ds_get_social_icons() {
 			<li class="et-social-icon et-social-linkedin">
 				<a href="<?php echo esc_url( et_get_option( 'divi_linkedin_url', '#' ) ); ?>" class="icon">
 					<span><?php esc_html_e( 'LinkedIn', 'Divi' ); ?></span>
+				</a>
+			</li>
+		<?php endif; ?>
+
+		<?php if ( 'on' === et_get_option( 'divi_show_meetup_icon', 'on' ) ) : ?>
+			<li class="et-social-icon et-social-meetup">
+				<a href="<?php echo esc_url( et_get_option( 'divi_meetup_url', '#' ) ); ?>" class="zocial meetup icon">
+					<span><?php esc_html_e( 'Meetup', 'Divi' ); ?></span>
 				</a>
 			</li>
 		<?php endif; ?>
