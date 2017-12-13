@@ -26,7 +26,6 @@ define( 'AW_DS_ASSSETS_URL', plugin_dir_url( __FILE__ ) . '/assets/' );
 add_action( 'wp_enqueue_scripts', 'aw_divi_social_enqueue_styles' );
 function aw_divi_social_enqueue_styles () {
 	wp_enqueue_style( 'font-awesome', AW_DS_ASSSETS_URL . 'font-awesome/fontawesome-all.min.css' );
-	wp_enqueue_style( 'zocial', AW_DS_ASSSETS_URL . 'zocial/css/zocial.css' );
 
 }
 
@@ -91,7 +90,7 @@ function aw_ds_get_social_icons() {
 		<?php if ( 'on' === et_get_option( 'divi_show_houzz_icon', 'on' ) ) : ?>
 			<li class="et-social-icon et-social-houzz">
 				<a href="<?php echo esc_url( et_get_option( 'divi_houzz_url', '#' ) ); ?>" class="icon">
-					<i class="fa fa-houzz"></i>
+					<i class="fab fa-houzz"></i>
 					<span><?php esc_html_e( 'Houzz', 'Divi' ); ?></span>
 				</a>
 			</li>
@@ -115,7 +114,8 @@ function aw_ds_get_social_icons() {
 
 		<?php if ( 'on' === et_get_option( 'divi_show_meetup_icon', 'on' ) ) : ?>
 			<li class="et-social-icon et-social-meetup">
-				<a href="<?php echo esc_url( et_get_option( 'divi_meetup_url', '#' ) ); ?>" class="zocial meetup icon">
+				<a href="<?php echo esc_url( et_get_option( 'divi_meetup_url', '#' ) ); ?>" class="icon">
+					<i class="fab fa-meetup"></i>
 					<span><?php esc_html_e( 'Meetup', 'Divi' ); ?></span>
 				</a>
 			</li>
