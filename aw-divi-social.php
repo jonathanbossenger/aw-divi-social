@@ -191,7 +191,7 @@ class AW_Divi_Social_Media {
 	 * Override Core Divi Social Media icons
 	 */
 	public function load_core_divi_options() {
-		require_once $this->dir . 'options_divi_social.php';
+		require_once $this->dir . '/options_divi_social.php';
 	}
 
 	/**
