@@ -118,7 +118,7 @@ class AW_Divi_Social_Media {
 			add_action( 'admin_init', array( $this, 'load_core_divi_options' ), 11 );
 		}
 
-		add_action( 'init', array( $this, 'load_localisation' ), 0 );
+		// add_action( 'init', array( $this, 'load_localisation' ), 0 );
 
 		/**
 		 * Inject social media icons into footer
@@ -190,7 +190,7 @@ class AW_Divi_Social_Media {
 	/**
 	 * Override Core Divi Social Media icons
 	 */
-	private function load_core_divi_options() {
+	public function load_core_divi_options() {
 		require_once $this->dir . 'options_divi_social.php';
 	}
 
