@@ -22,6 +22,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'AW_DS_VERSION', '2.0.0' );
+define( 'AW_DS_DEBUG', true );
+
+function aw_debug( $data ) {
+	if ( AW_DS_DEBUG ) {
+		$file = plugin_dir_path( __FILE__ ) . 'awds.log.' . date( 'd-m-Y' ) . '.txt';
+		if ( ! is_file( $file ) ) {
+			file_put_contents( $file, '' );
+		}
+		$data_string = print_r( $data, true ) . "\n";
+		file_put_contents( $file, $data_string, FILE_APPEND );
+	}
+}
 
 class AW_Divi_Social_Media {
 
@@ -112,10 +124,9 @@ class AW_Divi_Social_Media {
 		// Load frontend JS & CSS
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ), 10 );
 
-
 		// Load API for generic admin functions
 		if ( is_admin() ) {
-			add_action( 'admin_init', array( $this, 'load_core_divi_options' ), 11 );
+			add_filter( 'et_epanel_layout_data', array( $this, 'et_epanel_layout_data' ) );
 		}
 
 		// add_action( 'init', array( $this, 'load_localisation' ), 0 );
@@ -123,15 +134,18 @@ class AW_Divi_Social_Media {
 		/**
 		 * Inject social media icons into footer
 		 */
-		add_action( 'et_head_meta', array( $this, 'ob_start' ) );
-		add_action( 'et_header_top', array( $this, 'ob_end' ) );
+		//add_action( 'et_head_meta', array( $this, 'ob_start' ) );
+		//add_action( 'et_header_top', array( $this, 'ob_end' ) );
+		//do_action( "get_template_part_{$slug}", $slug, $name );
+		add_action( 'get_template_part_includes/social_icons', array( $this, 'get_social_icons' ), 10, 2 );
 
 		/**
 		 * Inject social media icons into footer
 		 */
-		add_action( 'get_footer', array( $this, 'ob_start' ) );
-		add_action( 'wp_footer', array( $this, 'ob_end' ) );
-
+		//add_action( 'get_footer', array( $this, 'ob_start' ) );
+		//add_action( 'wp_footer', array( $this, 'ob_end' ) );
+		//echo apply_filters( 'et_html_top_header', $top_header );
+		add_filter( 'et_html_top_header', array( $this, 'update_et_html_top_header' ) );
 
 	}
 
@@ -188,10 +202,91 @@ class AW_Divi_Social_Media {
 	}
 
 	/**
-	 * Override Core Divi Social Media icons
+	 * Hooked into the et_epanel_layout_data filter
+	 * Add additional social media options
+	 *
+	 * @param $options
+	 *
+	 * @return array
 	 */
-	public function load_core_divi_options() {
-		require_once $this->dir . '/options_divi_social.php';
+	public function et_epanel_layout_data( $options ) {
+
+		$original_options = $options;
+
+		$additional_options = array(
+			'dribbble'  => 'Dribbble',
+			'flikr'     => 'Flikr',
+			'houzz'     => 'Houzz',
+			'instagram' => 'Instagram',
+			'linkedin'  => 'Linkedin',
+			'myspace'   => 'MySpace',
+			'meetup'    => 'Meetup',
+			'pinterest' => 'Pinterest',
+			'podcast'   => 'Podcast',
+			'tumblr'    => 'Tumblr',
+			'skype'     => 'Skype',
+			'yelp'      => 'Yelp',
+			'youtube'   => 'YouTube',
+			'vimeo'     => 'Vimeo',
+			'vine'      => 'Vine',
+		);
+
+		$new_options = array();
+
+		foreach ( $original_options as $option ) {
+
+			$new_options[] = $option;
+
+			if ( ! isset( $option['id'] ) ) {
+				continue;
+			}
+
+			if ( 'divi_show_google_icon' === $option['id'] ) {
+
+				foreach ( $additional_options as $option_name => $option_title ) {
+					$new_options[] = array(
+						'name' => sprintf(
+							/* translators: %s: option title */
+							esc_html__( 'Show %s Icon', 'divi' ),
+							$option_title
+						),
+						'id'   => 'divi_show_' . $option_name . '_icon',
+						'type' => 'checkbox',
+						'std'  => 'on',
+						'desc' => sprintf(
+							/* translators: %s: option title */
+							esc_html__( 'Here you can choose to display the %s Icon on your homepage', 'divi' ),
+							$option_title
+						),
+					);
+				}
+			}
+
+			if ( 'divi_google_url' === $option['id'] ) {
+
+				foreach ( $additional_options as $option_name => $option_title ) {
+					$new_options[] = array(
+						'name'            => sprintf(
+							/* translators: %s: option title */
+							esc_html__( '%s Url', 'divi' ),
+							$option_title
+						),
+						'id'              => 'divi_' . $option_name . '_url',
+						'std'             => '#',
+						'type'            => 'text',
+						'validation_type' => 'url',
+						'desc'            => sprintf(
+							/* translators: %s: option title */
+							esc_html__( 'Enter your  %s Url', 'divi' ),
+							$option_title
+						),
+					);
+				}
+			}
+		}
+
+		$options = $new_options;
+		return $options;
 	}
 
 	/**
@@ -210,6 +305,13 @@ class AW_Divi_Social_Media {
 		$content      = preg_replace( '/<ul class=\"et-social-icons\">.*?<\/ul>/is', $social_icons, $content );
 		// @todo determine correct escaping function here
 		echo $content;
+	}
+
+	public function update_et_html_top_header( $top_header ) {
+		$social_icons = $this->get_social_icons();
+		$top_header   = preg_replace( '/<ul class=\"et-social-icons\">.*?<\/ul>/is', $social_icons, $top_header );
+
+		return $top_header;
 	}
 
 	/**
