@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: AW Divi Social
- * Version: 2.0.0
+ * Version: 2.1.0
  * Plugin URI: http://atlanticwave.co/
  * Description: Additional Social Media icons for your headers and footers
  * Author: Atlantic Wave
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'AW_DS_VERSION', '2.0.0' );
+define( 'AW_DS_VERSION', '2.1.0' );
 define( 'AW_DS_DEBUG', true );
 
 function aw_debug( $data ) {
@@ -132,20 +132,16 @@ class AW_Divi_Social_Media {
 		// add_action( 'init', array( $this, 'load_localisation' ), 0 );
 
 		/**
-		 * Inject social media icons into footer
+		 * Inject social media icons into header
 		 */
-		//add_action( 'et_head_meta', array( $this, 'ob_start' ) );
-		//add_action( 'et_header_top', array( $this, 'ob_end' ) );
-		//do_action( "get_template_part_{$slug}", $slug, $name );
-		add_action( 'get_template_part_includes/social_icons', array( $this, 'get_social_icons' ), 10, 2 );
+		add_filter( 'et_html_top_header', array( $this, 'update_et_html_top_header' ) );
 
 		/**
 		 * Inject social media icons into footer
 		 */
-		//add_action( 'get_footer', array( $this, 'ob_start' ) );
-		//add_action( 'wp_footer', array( $this, 'ob_end' ) );
-		//echo apply_filters( 'et_html_top_header', $top_header );
-		add_filter( 'et_html_top_header', array( $this, 'update_et_html_top_header' ) );
+		add_action( 'et_after_main_content', array( $this, 'ob_start' ) );
+		add_action( 'wp_footer', array( $this, 'ob_end' ) );
+
 
 	}
 
@@ -155,7 +151,7 @@ class AW_Divi_Social_Media {
 	 * @since 1.0.0
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?' ), $this->_version );
+		_doing_it_wrong( __FUNCTION__, __( 'Please don\'t try to clone this object' ), $this->_version );
 	}
 
 	/**
@@ -164,7 +160,7 @@ class AW_Divi_Social_Media {
 	 * @since 1.0.0
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?' ), $this->_version );
+		_doing_it_wrong( __FUNCTION__, __( 'Please don\'t try to wakeup this object' ), $this->_version );
 	}
 
 	/**
@@ -203,7 +199,7 @@ class AW_Divi_Social_Media {
 
 	/**
 	 * Hooked into the et_epanel_layout_data filter
-	 * Add additional social media options
+	 * Add additional social media options to the Divi Theme Options panel
 	 *
 	 * @param $options
 	 *
@@ -292,21 +288,30 @@ class AW_Divi_Social_Media {
 	/**
 	 * Start output buffering
 	 */
-	private function ob_start() {
+	public function ob_start() {
 		ob_start();
 	}
 
 	/**
 	 * End output buffering, replace default social media icons with updated icons and return updated content
 	 */
-	private function ob_end() {
-		$content      = ob_get_clean();
+	public function ob_end() {
+		$content = ob_get_clean();
 		$social_icons = $this->get_social_icons();
 		$content      = preg_replace( '/<ul class=\"et-social-icons\">.*?<\/ul>/is', $social_icons, $content );
 		// @todo determine correct escaping function here
 		echo $content;
 	}
 
+	/**
+	 * Update the social media icons in the header
+	 *
+	 * Hooks into the et_html_top_header filter to update the $top_content variable
+	 *
+	 * @param $top_header
+	 *
+	 * @return null|string|string[]
+	 */
 	public function update_et_html_top_header( $top_header ) {
 		$social_icons = $this->get_social_icons();
 		$top_header   = preg_replace( '/<ul class=\"et-social-icons\">.*?<\/ul>/is', $social_icons, $top_header );
@@ -319,9 +324,9 @@ class AW_Divi_Social_Media {
 	 *
 	 * @return string
 	 */
-	private function get_social_icons() {
+	public function get_social_icons() {
 		ob_start();
-		require_once $this->dir . '/templates/social-icons.php';
+		require $this->dir . '/templates/social-icons.php';
 		return ob_get_clean();
 	}
 

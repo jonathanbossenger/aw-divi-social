@@ -37,6 +37,11 @@ Add new plugin by uploading zip archive. Additional icons are available via your
 
 == Changelog ==
 
+= 2.1.0 =
+* 2018-05-24
+* Updated Font Awesome Library to Font Awesome 5
+* Fixed a breaking bug related to Divi version 3.3.x
+
 = 1.3 =
 * 2016-07-08
 * Added Yelp

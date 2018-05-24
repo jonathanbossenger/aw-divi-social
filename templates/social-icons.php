@@ -103,7 +103,7 @@
 	<?php if ( 'on' === et_get_option( 'divi_show_yelp_icon', 'on' ) ) : ?>
 		<li class="et-social-icon et-social-yelp">
 			<a href="<?php echo esc_url( et_get_option( 'divi_yelp_url', '#' ) ); ?>" class="icon">
-				<i class="fa fa-yelp"></i>
+				<i class="fab fa-yelp"></i>
 				<span><?php esc_html_e( 'Yelp', 'Divi' ); ?></span>
 			</a>
 		</li>
@@ -125,7 +125,7 @@
 	<?php if ( 'on' === et_get_option( 'divi_show_vine_icon', 'on' ) ) : ?>
 		<li class="et-social-icon et-social-vine">
 			<a href="<?php echo esc_url( et_get_option( 'divi_vine_url', '#' ) ); ?>" class="icon">
-				<i class="fa fa-vine"></i>
+				<i class="fab fa-vine"></i>
 				<span><?php esc_html_e( 'Vine', 'Divi' ); ?></span>
 			</a>
 		</li>
