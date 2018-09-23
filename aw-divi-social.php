@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: AW Divi Social
- * Version: 2.1.0
+ * Version: 2.1.1
  * Plugin URI: http://atlanticwave.co/
  * Description: Additional Social Media icons for your headers and footers
  * Author: Atlantic Wave
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'AW_DS_VERSION', '2.1.0' );
+define( 'AW_DS_VERSION', '2.1.1' );
 define( 'AW_DS_DEBUG', true );
 
 function aw_debug( $data ) {
@@ -210,21 +210,23 @@ class AW_Divi_Social_Media {
 		$original_options = $options;
 
 		$additional_options = array(
-			'dribbble'  => 'Dribbble',
-			'flikr'     => 'Flikr',
-			'houzz'     => 'Houzz',
-			'instagram' => 'Instagram',
-			'linkedin'  => 'Linkedin',
-			'myspace'   => 'MySpace',
-			'meetup'    => 'Meetup',
-			'pinterest' => 'Pinterest',
-			'podcast'   => 'Podcast',
-			'tumblr'    => 'Tumblr',
-			'skype'     => 'Skype',
-			'yelp'      => 'Yelp',
-			'youtube'   => 'YouTube',
-			'vimeo'     => 'Vimeo',
-			'vine'      => 'Vine',
+			'dribbble'   => 'Dribbble',
+			'flikr'      => 'Flikr',
+			'houzz'      => 'Houzz',
+			'instagram'  => 'Instagram',
+			'linkedin'   => 'Linkedin',
+			'myspace'    => 'MySpace',
+			'meetup'     => 'Meetup',
+			'pinterest'  => 'Pinterest',
+			'podcast'    => 'Podcast',
+			'tumblr'     => 'Tumblr',
+			'skype'      => 'Skype',
+			'spotify'    => 'Spotify',
+			'soundcloud' => 'SoundCloud',
+			'yelp'       => 'Yelp',
+			'youtube'    => 'YouTube',
+			'vimeo'      => 'Vimeo',
+			'vine'       => 'Vine',
 		);
 
 		$new_options = array();

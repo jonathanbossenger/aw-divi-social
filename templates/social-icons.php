@@ -79,10 +79,26 @@
 			</a>
 		</li>
 	<?php endif; ?>
-	<?php if ( 'on' === et_get_option( 'divi_show_twitter_icon', 'on' ) ) : ?>
-		<li class="et-social-icon et-social-twitter">
-			<a href="<?php echo esc_url( et_get_option( 'divi_twitter_url', '#' ) ); ?>" class="icon">
-				<span><?php esc_html_e( 'Twitter', 'Divi' ); ?></span>
+	<?php if ( 'on' === et_get_option( 'divi_show_skype_icon', 'on' ) ) : ?>
+		<li class="et-social-icon et-social-skype">
+			<a href="<?php echo esc_url( et_get_option( 'divi_skype_url', '#' ) ); ?>" class="icon">
+				<span><?php esc_html_e( 'Skype', 'Divi' ); ?></span>
+			</a>
+		</li>
+	<?php endif; ?>
+	<?php if ( 'on' === et_get_option( 'divi_show_soundcloud_icon', 'on' ) ) : ?>
+		<li class="et-social-icon et-social-soundcloud">
+			<a href="<?php echo esc_url( et_get_option( 'divi_soundcloud_url', '#' ) ); ?>" class="icon">
+				<i class="fab fa-soundcloud"></i>
+				<span><?php esc_html_e( 'SoundCloud', 'Divi' ); ?></span>
+			</a>
+		</li>
+	<?php endif; ?>
+	<?php if ( 'on' === et_get_option( 'divi_show_spotify_icon', 'on' ) ) : ?>
+		<li class="et-social-icon et-social-spotify">
+			<a href="<?php echo esc_url( et_get_option( 'divi_spotify_url', '#' ) ); ?>" class="icon">
+				<i class="fab fa-spotify"></i>
+				<span><?php esc_html_e( 'Spotify', 'Divi' ); ?></span>
 			</a>
 		</li>
 	<?php endif; ?>
@@ -93,10 +109,10 @@
 			</a>
 		</li>
 	<?php endif; ?>
-	<?php if ( 'on' === et_get_option( 'divi_show_skype_icon', 'on' ) ) : ?>
-		<li class="et-social-icon et-social-skype">
-			<a href="<?php echo esc_url( et_get_option( 'divi_skype_url', '#' ) ); ?>" class="icon">
-				<span><?php esc_html_e( 'Skype', 'Divi' ); ?></span>
+	<?php if ( 'on' === et_get_option( 'divi_show_twitter_icon', 'on' ) ) : ?>
+		<li class="et-social-icon et-social-twitter">
+			<a href="<?php echo esc_url( et_get_option( 'divi_twitter_url', '#' ) ); ?>" class="icon">
+				<span><?php esc_html_e( 'Twitter', 'Divi' ); ?></span>
 			</a>
 		</li>
 	<?php endif; ?>

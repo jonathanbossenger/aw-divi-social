@@ -4,7 +4,7 @@ Donate link: http://atlanticwave.co
 Tags: wordpress, plugin, divi
 Requires at least: 4.0
 Tested up to: 4.0
-Stable tag: 1.2
+Stable tag: 2.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,6 +36,10 @@ Yelp
 Add new plugin by uploading zip archive. Additional icons are available via your Divi Theme options.
 
 == Changelog ==
+
+= 2.1.1 =
+* 2018-05-24
+* Added SoundCloud, Spotify
 
 = 2.1.0 =
 * 2018-05-24
