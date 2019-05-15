@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: AW Divi Social
- * Version: 2.1.1
+ * Version: 2.1.2
  * Plugin URI: http://atlanticwave.co/
  * Description: Additional Social Media icons for your headers and footers
  * Author: Atlantic Wave
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'AW_DS_VERSION', '2.1.1' );
+define( 'AW_DS_VERSION', '2.1.2' );
 define( 'AW_DS_DEBUG', true );
 
 function aw_debug( $data ) {
@@ -213,7 +213,6 @@ class AW_Divi_Social_Media {
 			'dribbble'   => 'Dribbble',
 			'flikr'      => 'Flikr',
 			'houzz'      => 'Houzz',
-			'instagram'  => 'Instagram',
 			'linkedin'   => 'Linkedin',
 			'myspace'    => 'MySpace',
 			'meetup'     => 'Meetup',

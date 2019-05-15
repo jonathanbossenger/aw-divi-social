@@ -43,13 +43,6 @@
 			</a>
 		</li>
 	<?php endif; ?>
-	<?php if ( 'on' === et_get_option( 'divi_show_instagram_icon', 'on' ) ) : ?>
-		<li class="et-social-icon et-social-instagram">
-			<a href="<?php echo esc_url( et_get_option( 'divi_instagram_url', '#' ) ); ?>" class="icon">
-				<span><?php esc_html_e( 'Instagram', 'Divi' ); ?></span>
-			</a>
-		</li>
-	<?php endif; ?>
 	<?php if ( 'on' === et_get_option( 'divi_show_linkedin_icon', 'on' ) ) : ?>
 		<li class="et-social-icon et-social-linkedin">
 			<a href="<?php echo esc_url( et_get_option( 'divi_linkedin_url', '#' ) ); ?>" class="icon">
